@@ -1,52 +1,54 @@
-> ![warning](../sources/images/warning-3.gif)Simple Registry没有经过严格测试，可能不健状，并且不支持集群，不建议用于生产环境。
+# Simple 注册中心安装
 
-* 安装:
+Simple Registry 没有经过严格测试，可能不健状，并且不支持集群，不建议用于生产环境。
 
-```shell
+安装:
+
+```sh
 wget http://code.alibabatech.com/mvn/releases/com/alibaba/dubbo-registry-simple/2.4.1/dubbo-registry-simple-2.4.1-assembly.tar.gz
 tar zxvf dubbo-registry-simple-2.4.1-assembly.tar.gz
 cd dubbo-registry-simple-2.4.1
 ```
 
-* 配置:
+配置:
 
-```shell
+```sh
 vi conf/dubbo.properties
 ```
 
-* 启动:
+启动:
 
-```shell
+```sh
 ./bin/start.sh
 ```
 
-* 停止:
+停止:
 
-```shell
+```sh
 ./bin/stop.sh
 ```
 
-* 重启:
+重启:
 
-```shell
+```sh
 ./bin/restart.sh
 ```
 
-* 调试:
+调试:
 
-```shell
+```sh
 ./bin/start.sh debug
 ```
 
-* 系统状态:
+系统状态:
 
-```shell
+```sh
 ./bin/dump.sh
 ```
 
-* 总控入口:
+总控入口:
 
-```shell
+```sh
 ./bin/server.sh start
 ./bin/server.sh stop
 ./bin/server.sh restart
@@ -54,21 +56,23 @@ vi conf/dubbo.properties
 ./bin/server.sh dump
 ```
 
-* 标准输出:
+标准输出:
 
-```shell
+```sh
 tail -f logs/stdout.log
 ```
 
-* 命令行: (See: [Telnet Command Reference](user-guide-telnet-cmd-ref))
+命令行 [^1]:
 
 ```shell
 telnet 127.0.0.1 9090
 help
 ```
 
-Or:
+或者:
 
-```shell
+```sh
 echo status | nc -i 1 127.0.0.1 9090
 ```
+
+[^1]: 请参考 [Telnet 命令参考手册](https://dubbo.gitbooks.io/dubbo-user-book/content/references/telnet.html)

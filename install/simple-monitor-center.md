@@ -1,56 +1,54 @@
-> ![warning](../sources/images/check.gif)Simple Monitor挂掉不会影响到Consumer和Provider之间的调用，所以用于生产环境不会有风险。
+# Simple 监控中心安装
 
-> ![warning](../sources/images/warning-3.gif)Simple Monitor采用磁盘存储统计信息，请注意安装机器的磁盘限制，如果要集群，建议用mount共享磁盘。
+## 安装步骤
 
-> ![warning](../sources/images/warning-3.gif)charts目录必须放在jetty.directory下，否则页面上访问不了。
+安装:
 
-* 安装:
-
-```shell
+```sh
 wget http://code.alibabatech.com/mvn/releases/com/alibaba/dubbo-monitor-simple/2.4.1/dubbo-monitor-simple-2.4.1-assembly.tar.gz
 tar zxvf dubbo-monitor-simple-2.4.1-assembly.tar.gz
 cd dubbo-monitor-simple-2.4.1
 ```
 
-* 配置:
+配置:
 
-```shell
+```sh
 vi conf/dubbo.properties
 ```
 
-* 启动:
+启动:
 
-```shell
+```sh
 ./bin/start.sh
 ```
 
-* 停止:
+停止:
 
-```shell
+```sh
 ./bin/stop.sh
 ```
 
-* 重启:
+重启:
 
-```shell
+```sh
 ./bin/restart.sh
 ```
 
-* 调试:
+调试:
 
-```shell
+```sh
 ./bin/start.sh debug
 ```
 
-* 系统状态:
+系统状态:
 
-```shell
+```sh
 ./bin/dump.sh
 ```
 
-* 总控入口:
+总控入口:
 
-```shell
+```sh
 ./bin/server.sh start
 ./bin/server.sh stop
 ./bin/server.sh restart
@@ -58,22 +56,22 @@ vi conf/dubbo.properties
 ./bin/server.sh dump
 ```
 
-* 标准输出:
+标准输出:
 
-```shell
+```sh
 tail -f logs/stdout.log
 ```
 
-* 命令行: (See: [Telnet Command Reference](user-guide-telnet-cmd-ref))
+命令行 [^1]:
 
-```shell
+```sh
 telnet 127.0.0.1 7070
 help
 ```
 
-Or:
+或者:
 
-```shell
+```sh
 echo status | nc -i 1 127.0.0.1 7070
 ```
 
@@ -84,4 +82,13 @@ http://127.0.0.1:8080
 ```
 
 ![/admin-guide/images/dubbo-monitor-simple.jpg](../sources/images/dubbo-monitor-simple.jpg)
+
+## 注意事项
+Simple Monitor 挂掉不会影响到 Consumer 和 Provider 之间的调用，所以用于生产环境不会有风险。
+
+Simple Monitor 采用磁盘存储统计信息，请注意安装机器的磁盘限制，如果要集群，建议用mount共享磁盘。
+
+charts 目录必须放在 `jetty.directory` 下，否则页面上访问不了。
+
+[^1]: 请参考 [Telnet 命令参考手册](https://dubbo.gitbooks.io/dubbo-user-book/content/references/telnet.html)
 
